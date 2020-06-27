@@ -11,7 +11,6 @@ public class Acontroller {
 	@RequestMapping(method = RequestMethod.GET)
 	public static ModelAndView first() {
 		ModelAndView mv=new ModelAndView();
-		System.out.println("was here");
 		mv.setViewName("index");
 		return mv;
 		
