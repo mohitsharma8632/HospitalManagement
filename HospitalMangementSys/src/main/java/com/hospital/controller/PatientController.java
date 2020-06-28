@@ -44,7 +44,7 @@ public class PatientController {
 		return new ModelAndView("deletePatientForm");
 	}
 	
-	@RequestMapping(value="/updatePatientForm",method=RequestMethod.POST)
+	@RequestMapping(value="/deletePatientForm",method=RequestMethod.POST)
 	public ModelAndView patientDeleted(Patient p) {
 		ModelAndView md = new ModelAndView("deletePatientForm");
 //		if dao method updated successfully then add this msge
