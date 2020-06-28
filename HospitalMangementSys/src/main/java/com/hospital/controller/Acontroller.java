@@ -1,6 +1,7 @@
 package com.hospital.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,5 +24,11 @@ public class Acontroller {
 		mv.setViewName("index");
 		return mv;
 		
+	}
+	@GetMapping("/login")
+	public static ModelAndView login(String msg) {
+		ModelAndView mv= new ModelAndView();
+		mv.setViewName("login");
+		return mv;
 	}
 }
