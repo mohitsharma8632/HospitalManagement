@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class TrackingMedicinesIssued {
@@ -13,7 +15,11 @@ public class TrackingMedicinesIssued {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private int patientId;
-	private int medicineId;
+	
+	@ManyToOne
+	@JoinColumn(name="Medicine_Id")
+	private Medicine medicine;
+	
 	private int quantityIssued;
 	
 	
@@ -21,11 +27,22 @@ public class TrackingMedicinesIssued {
 	public TrackingMedicinesIssued() {
 	}
 	
-	public TrackingMedicinesIssued(int patientId, int medicineId, int quantityIssued) {
+	public TrackingMedicinesIssued(int patientId, Medicine medicine, int quantityIssued) {
 		super();
 		this.patientId = patientId;
-		this.medicineId = medicineId;
+		this.medicine = medicine;
 		this.quantityIssued = quantityIssued;
+	}
+
+
+
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public int getPatientId() {
@@ -36,14 +53,14 @@ public class TrackingMedicinesIssued {
 		this.patientId = patientId;
 	}
 	
-	public int getMedicineId() {
-		return medicineId;
+	public Medicine getMedicine() {
+		return medicine;
 	}
-	
-	public void setMedicineId(int medicineId) {
-		this.medicineId = medicineId;
+
+	public void setMedicine(Medicine medicine) {
+		this.medicine = medicine;
 	}
-	
+
 	public int getQuantityIssued() {
 		return quantityIssued;
 	}
