@@ -4,10 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TestConducted")
+@Table(name = "Test_Conducted")
 public class TrackingDiagnostics {
 
 	@Id
@@ -15,6 +17,10 @@ public class TrackingDiagnostics {
 	private int id;
 	private int patientId;
 	private int testConductedId;
+	
+	@ManyToOne
+	@JoinColumn(name="Diagnotics_Id")
+	private Diagnostics diagnostics;
 	
 	public TrackingDiagnostics(int patientId, int testConductedId) {
 		super();
@@ -47,6 +53,14 @@ public class TrackingDiagnostics {
 
 	public void setTestConductedId(int testConductedId) {
 		this.testConductedId = testConductedId;
+	}
+
+	public Diagnostics getDiagnostics() {
+		return diagnostics;
+	}
+
+	public void setDiagnostics(Diagnostics diagnostics) {
+		this.diagnostics = diagnostics;
 	}
 	
 	
