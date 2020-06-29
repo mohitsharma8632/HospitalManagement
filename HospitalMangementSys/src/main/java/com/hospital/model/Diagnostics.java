@@ -1,26 +1,29 @@
 package com.hospital.model;
 
-import javax.persistence.Column;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
-
 @Entity
-@Table(name = "DiagnosticsMaster")
+@Table(name = "Diagnostics_Master")
 public class Diagnostics {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
-
-	@Column(precision=10, scale=2)
-	@Type(type = "big_decimal")
 	private double charge;
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="diagnostics")
+	private List<TrackingDiagnostics> trackingDiagnostics;
 	
 	
 	public Diagnostics() {
@@ -61,6 +64,16 @@ public class Diagnostics {
 
 	public void setCharge(double charge) {
 		this.charge = charge;
+	}
+
+
+	public List<TrackingDiagnostics> getTrackingDiagnostics() {
+		return trackingDiagnostics;
+	}
+
+
+	public void setTrackingDiagnostics(List<TrackingDiagnostics> trackingDiagnostics) {
+		this.trackingDiagnostics = trackingDiagnostics;
 	}
 	
 	
