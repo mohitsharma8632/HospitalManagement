@@ -31,16 +31,15 @@
 		    </c:if>  
 		    <div class="form-group row justify-content-center">  
 		        <label for="username" class="col-form-label col-md-2">User</label>  
-		        <input type="text" class="form-control col-md-3" id="username" name="username"/>      
+		        <input type="text" class="form-control col-md-3" id="username" name="username" required/>      
 		    </div>  
 		    <div class="form-group row justify-content-center">  
 		        <label for="password" class="col-form-label col-md-2">Password</label>  
-		        <input type="password" class="form-control col-md-3" id="password" name="password"/>      
+		        <input type="password" class="form-control col-md-3" id="password" name="password" required/>      
 		    </div>
 		    <div class="form-group row justify-content-center">  
-			    <input type="hidden"                          
-			        name="${_csrf.parameterName}"  
-			        value="${_csrf.token}"/>  
+ 			    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>  
+
 			    <button type="submit" class="btn btn-dark">Log in</button>  
 		    </div>
 		</form>

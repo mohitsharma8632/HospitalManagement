@@ -43,6 +43,12 @@
 					    <a class="dropdown-item" href="#">Patient Details</a>
 					  </div>
 					</div>
+					
+					<div class="dropdown mx-5">
+					<a href="logout">  <button class="btn btn-primary " type="button" >
+					    <strong>Logout</strong>
+					  </button>
+				</a>	</div>
 				</div>
 		</div>
 		<h1>${msg }</h1>
