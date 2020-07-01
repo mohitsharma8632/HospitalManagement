@@ -1,17 +1,14 @@
 package com.hospital.model;
 
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "patient")
 public class Patient {
 
 	@Id
@@ -24,7 +21,7 @@ public class Patient {
 	private String name;
 	private int age;
 	
-	private Date dateOfAdmission;
+	private String dateOfAdmission;
 	
 	private String typeOfBed;
 	private String address;
@@ -32,27 +29,6 @@ public class Patient {
 	private String state;
 	private boolean status;
 	
-	
-	public Patient(String ssnId, String name, int age, Date dateOfAdmission, String typeOfBed, String address,
-			String city, String state, boolean status) {
-		super();
-		this.ssnId = ssnId;
-		this.name = name;
-		this.age = age;
-		this.dateOfAdmission = dateOfAdmission;
-		this.typeOfBed = typeOfBed;
-		this.address = address;
-		this.city = city;
-		this.state = state;
-		this.status = status;
-	}
-
-
-	public Patient() {
-		
-	}
-
-
 	public int getId() {
 		return id;
 	}
@@ -93,12 +69,12 @@ public class Patient {
 	}
 
 
-	public Date getDateOfAdmission() {
+	public String getDateOfAdmission() {
 		return dateOfAdmission;
 	}
 
 
-	public void setDateOfAdmission(Date dateOfAdmission) {
+	public void setDateOfAdmission(String dateOfAdmission) {
 		this.dateOfAdmission = dateOfAdmission;
 	}
 

@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.hospital.model.Medicine;
 
-public interface MedicineRepository extends CrudRepository<Medicine, Integer> {
+public interface MedicineRepository extends CrudRepository<Medicine, String> {
 
 }

@@ -36,14 +36,14 @@
 					<th>DOJ</th>
 					<th>Type Of Room</th>
 				</tr>
-			<c:forEach items="${patients}" var="p">
+			<c:forEach items="${plist}" var="p">
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>${p.id}</td>
+					<td>${p.name}</td>
+					<td>${p.age}</td>
+					<td>${p.address}</td>
+					<td>${p.dateOfAdmission}</td>
+					<td>${p.typeOfBed}</td>
 				</tr>
 			</c:forEach>
 				<!--  <tr>

@@ -1,12 +1,10 @@
 package com.hospital.controller;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hospital.model.*;
@@ -17,80 +15,111 @@ public class PatientController {
 	@Autowired
 	PatientRepository patientRepository; 
 	
-	
-	
-	
-	@RequestMapping("/patientRegistrationForm")
+	@GetMapping("patientRegistrationForm")
 	public ModelAndView registerPatient() {
+
 		return new ModelAndView("patientRegistrationForm");
 	}
 	
-	@RequestMapping(value="/patientRegistrationForm",method=RequestMethod.POST)
+	@PostMapping("patientRegistrationForm")
 	public ModelAndView patientRegistered(Patient p) {
-		ModelAndView md = new ModelAndView("patientRegistrationForm");
-//		if dao method save successfully then add this msge
-		try {
-		patientRepository.save(p);
-		md.addObject("msge", "Patient creation initiated successfully");
+		System.out.println("was here");
+		ModelAndView md = new ModelAndView("header");
+try {
+	p=	patientRepository.save(p);
+		md.addObject("msg", "Patient creation initiated successfully with id"+p.getId());
 		}catch(Error e) {
-//			else add msge to error object returned by it
-			md.addObject("msge","error")
-			;
+			md.addObject("msg","error");
 			}
 		return md;
 	}
 	
-	@RequestMapping("/updatePatientForm")
+	@GetMapping("updatePatientForm")
 	public ModelAndView updatePatient() {
-		return new ModelAndView("updatePatientForm");
+		ModelAndView md=new ModelAndView("updatePatientForm");
+		md.addObject("to","updatePatientForm");
+		return md;
 	}
 	
-	@RequestMapping(value="/updatePatientForm",method=RequestMethod.POST)
+	@PostMapping("updatePatientForm")
 	public ModelAndView patientUpdated(Patient p) {
-		ModelAndView md = new ModelAndView("updatePatientForm");
-//		if dao method updated successfully then add this msge
-		try {
+		ModelAndView md = new ModelAndView("header");
+try {
 		patientRepository.save(p);
-		md.addObject("msge", "Patient update initiated successfully");}
-//		else add msge to error object returned by it
-		catch(Error e) {
-		md.addObject("msge","error");
+		md.addObject("msg", "Patient update initiated successfully");}
+	catch(Error e) {
+		md.addObject("msg","error");
 		}
 		return md;
 	}
 	
-	@RequestMapping("/deletePatientForm")
+	@GetMapping("deletePatientForm")
 	public ModelAndView deletePatient() {
 		return new ModelAndView("deletePatientForm");
 	}
 	
-	@RequestMapping(value="/deletePatientForm",method=RequestMethod.POST)
+	@PostMapping("deletePatientForm")
 	public ModelAndView patientDeleted(Patient p) {
-		ModelAndView md = new ModelAndView("deletePatientForm");
-//		if dao method updated successfully then add this msge
-		try {
+		ModelAndView md = new ModelAndView("header");
+try {
 		patientRepository.delete(p);
-		md.addObject("msge", "Patient deletion initiated successfully");
+		md.addObject("msg", "Patient deletion initiated successfully");
 		}catch(Error e) {
-			//		else add msge to error object returned by it
-
-			md.addObject("msge","error");
+			md.addObject("msg","error");
 			}
 		return md;
 	}
 	
-	@RequestMapping("/viewPatients")
+	@GetMapping("viewPatients")
 	public ModelAndView getAllPatientsDetails() {
-		ModelAndView md=new ModelAndView("listPatients");
+		ModelAndView md=new ModelAndView("viewPatients");
 		ArrayList<Patient> plist=(ArrayList<Patient>) patientRepository.findAll();
 		md.addObject("plist", plist);
-		return new ModelAndView("listPatients");
+		return md;
 	}
 	
-	@RequestMapping("/patientDetailsForm")
+	@GetMapping("patientDetailsForm")
 	public ModelAndView getPatientDetails() {
 		return new ModelAndView("patientDetails");
 	}
+	
+	@PostMapping("patientDetailsForm")
+	public ModelAndView PatientDetails(Patient p) {
+		ModelAndView md= new ModelAndView("patientDetails");
+		try {
+			p=patientRepository.findById(p.getId()).get();
+			md.addObject("p",p);
+		}catch(Error e) {
+				md.addObject("msg","error");
+				}
+			return md;
+		}
+	
+	
+	@PostMapping("deletePatientget")
+	public ModelAndView deletePatientget(Patient p) {
+		ModelAndView md= new ModelAndView("deletePatientForm");
+		try {
+			p=patientRepository.findById(p.getId()).get();
+			md.addObject("p",p);
+		}catch(Error e) {
+				md.addObject("msg","error");
+				}
+			return md;
+		}
+	
+	@PostMapping("updatePatientget")
+	public ModelAndView updatePatientget(Patient p) {
+		ModelAndView md= new ModelAndView("updatePatientForm");
+		try {
+			p=patientRepository.findById(p.getId()).get();
+			md.addObject("p",p);
+		}catch(Error e) {
+				md.addObject("msg","error");
+				}
+			return md;
+		}
+
 	
 	
 }

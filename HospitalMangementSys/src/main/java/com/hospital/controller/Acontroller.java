@@ -14,14 +14,14 @@ public class Acontroller {
 	@RequestMapping(method = RequestMethod.GET)
 	public static ModelAndView first() {
 		ModelAndView mv=new ModelAndView();
-		mv.setViewName("index");
+		mv.setViewName("header");
 		return mv;
 		
 	}
 	@RequestMapping("home")
 	public static ModelAndView first(Patient p) {
 		ModelAndView mv=new ModelAndView();
-		mv.setViewName("index");
+		mv.setViewName("header");
 		return mv;
 		
 	}

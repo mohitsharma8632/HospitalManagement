@@ -11,27 +11,39 @@
 	<div class="container">
 		<h4 class="text-center">Update Patient</h4>
 		<br/><br/>
-		<form class="" action="#" method="post">
+				<form class="" action="updatePatientget" method="post">
 			<div class="form-group row">
 				<label for="id" class="col-form-label offset-md-2 col-md-2"><strong>Patient ID<sup>*</sup></strong></label>
-				<input type="text" class="form-control offset-md-1 col-md-4" id="id" name="id" required/>
-				<button class="btn btn-block btn-dark col-md-1 offset-md-1">Get</button>
+					<input type="text" class="form-control offset-md-1 col-md-4" id="id" name="id" value="${p.id}" required/>
+				<input type="submit" class="btn btn-block btn-dark col-md-1 offset-md-1" value="get">
 			</div>
+			</form>
+		
+	
+				
+					<form class="" action="updatePatientForm" method="post">
+					
+				<input type="hidden" class="form-control offset-md-1 col-md-4" id="id" name="id" value="${p.id}" required/>
+					
+				<input type="hidden" class="form-control offset-md-1 col-md-4" id="ssnId" name="ssnId" value="${p.ssnId}" required/>
+					
+					
+					
 			<div class="form-group row">
 				<label for="name" class="col-form-label offset-md-2 col-md-2"><strong>Patient Name</strong></label>
-				<input type="text" class="form-control offset-md-1 col-md-4" id="name" name="name" />
+				<input type="text" class="form-control offset-md-1 col-md-4" id="name" name="name" value="${p.name}"/>
 			</div>
 			<div class="form-group row">
 				<label for="age" class="col-form-label offset-md-2 col-md-2"><strong>Patient Age</strong></label>
-				<input type="number" class="form-control offset-md-1 col-md-4" id="age" name="age" />
+				<input type="number" class="form-control offset-md-1 col-md-4" id="age" name="age" value="${p.age}"/>
 			</div>
 			<div class="form-group row">
 				<label for="dateOfAdmission" class="col-form-label offset-md-2 col-md-2"><strong>Date of Admission</strong></label>
-				<input type="date" class="form-control offset-md-1 col-md-4" id="dateOfAdmission" name="dateOfAdmission" />
+				<input type="date" class="form-control offset-md-1 col-md-4" id="dateOfAdmission" name="dateOfAdmission" value="${p.dateOfAdmission}"/>
 			</div>
 			<div class="form-group row">
 				<label for="typeOfBed" class="col-form-label offset-md-2 col-md-2"><strong>Type of Bed</strong></label>
-				<select class="form-control offset-md-1 col-md-4" id="typeOfBed" name="typeOfBed">
+				<select class="form-control offset-md-1 col-md-4" id="typeOfBed" name="typeOfBed" >
 					<option value="">Select</option>
 					<option value="General Ward">General Ward</option>
 					<option value="Semi Sharing">Semi sharing</option>
@@ -40,7 +52,7 @@
 			</div>
 			<div class="form-group row">
 				<label for="address" class="col-form-label offset-md-2 col-md-2"><strong>Address</strong></label>
-				<textarea class="form-control offset-md-1 col-md-4" rows="5" id="address" name="address" ></textarea>
+				<input type="text" class="form-control offset-md-1 col-md-4" rows="5" id="address" name="address" value="${p.address}">
 			</div>
 			<div class="form-group row">
 				<label for="state" class="col-form-label offset-md-2 col-md-2"><strong>State</strong></label>
@@ -69,11 +81,10 @@
 			<div class="form-group row">
 				<span class="offset-md-3">*Mandatory</span>
 			</div>
+			
 			<div class="form-group row">
             	<div class="offset-md-4 col-md-2">
-                	<button type="submit" class="btn  btn-block btn-dark ">
-               			<strong>Update</strong>
-                	</button>
+                	<input type="submit" class="btn  btn-block btn-dark " value="Update">   		
             	</div>
 			</div>                                    
 		</form>

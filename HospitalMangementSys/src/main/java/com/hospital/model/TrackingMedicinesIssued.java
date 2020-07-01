@@ -16,25 +16,10 @@ public class TrackingMedicinesIssued {
 	private int id;
 	private int patientId;
 	
-	@ManyToOne
-	@JoinColumn(name="Medicine_Id")
-	private Medicine medicine;
+	private String medicine;
 	
 	private int quantityIssued;
 	
-	
-	
-	public TrackingMedicinesIssued() {
-	}
-	
-	public TrackingMedicinesIssued(int patientId, Medicine medicine, int quantityIssued) {
-		super();
-		this.patientId = patientId;
-		this.medicine = medicine;
-		this.quantityIssued = quantityIssued;
-	}
-
-
 
 	
 	public int getId() {
@@ -53,11 +38,11 @@ public class TrackingMedicinesIssued {
 		this.patientId = patientId;
 	}
 	
-	public Medicine getMedicine() {
+	public String getMedicine() {
 		return medicine;
 	}
 
-	public void setMedicine(Medicine medicine) {
+	public void setMedicine(String medicine) {
 		this.medicine = medicine;
 	}
 

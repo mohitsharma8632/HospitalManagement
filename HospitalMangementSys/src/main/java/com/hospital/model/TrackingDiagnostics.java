@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Test_Conducted")
 public class TrackingDiagnostics {
 
 	@Id
@@ -18,18 +17,10 @@ public class TrackingDiagnostics {
 	private int patientId;
 	private int testConductedId;
 	
-	@ManyToOne
-	@JoinColumn(name="Diagnotics_Id")
-	private Diagnostics diagnostics;
+	private String diagnostics;
 	
-	public TrackingDiagnostics(int patientId, int testConductedId) {
-		super();
-		this.patientId = patientId;
-		this.testConductedId = testConductedId;
-	}
+	
 
-	public TrackingDiagnostics() {
-	}
 
 	public int getId() {
 		return id;
@@ -55,11 +46,11 @@ public class TrackingDiagnostics {
 		this.testConductedId = testConductedId;
 	}
 
-	public Diagnostics getDiagnostics() {
+	public String getDiagnostics() {
 		return diagnostics;
 	}
 
-	public void setDiagnostics(Diagnostics diagnostics) {
+	public void setDiagnostics(String diagnostics) {
 		this.diagnostics = diagnostics;
 	}
 	

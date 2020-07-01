@@ -19,7 +19,7 @@
 	<div class="container">
 		<h4 class="text-center">Patient Registration</h4>
 		<br/><br/>
-		<form class="" action="#" method="post">
+		<form class="" action="/patientRegistrationForm" method="post">
 			<div class="form-group row">
 				<label for="ssnId" class="col-form-label offset-md-2 col-md-2"><strong>Patient SSN ID<sup>*</sup></strong></label>
 				<input type="text" class="form-control offset-md-1 col-md-4" id="ssnId" name="ssnId" required/>
@@ -78,9 +78,9 @@
 			</div>
 			<div class="form-group row">
             	<div class="offset-md-3 col-md-2">
-                	<button type="submit" class="btn  btn-block btn-dark ">
-               			<strong>Submit</strong>
-                	</button>
+                	<input type="submit" class="btn  btn-block btn-dark ">
+               		
+                	
             	</div>
             	<div class="col-md-2">
                 	<button type="reset" class="btn  btn-block btn-dark ">
